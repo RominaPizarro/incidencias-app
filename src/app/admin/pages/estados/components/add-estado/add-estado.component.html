@@ -1,0 +1,19 @@
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <h3>Agregar Estado de Incidencia</h3>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="nombre" type="text" labelPlacement="stacked" label="Nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea [(ngModel)]="descripcion" rows="4" labelPlacement="stacked" label="Descripción"></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+  <ion-button  (click)="guardar()" class="p-1">Guardar</ion-button>
+  <ion-button color="danger" (click)="cancelar()">Cancelar</ion-button>
+</ion-content>

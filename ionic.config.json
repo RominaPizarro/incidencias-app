@@ -1,0 +1,7 @@
+{
+  "name": "incidencias-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

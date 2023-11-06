@@ -1,0 +1,11 @@
+
+<ion-content [fullscreen]="true">
+
+  <div style="text-align: end; width: 100%;">
+    <ion-button style="margin: 10px;" *ngIf="componente.selected === 'list-usuario'" (click)="changeComponent('add-usuario')">Nuevo Usuario</ion-button>
+  </div>
+
+  <app-add-usuario *ngIf="componente.selected === 'add-usuario'" [componenteSelected]="componente" ></app-add-usuario>
+  <app-list-usuario *ngIf="componente.selected === 'list-usuario'"></app-list-usuario>
+
+</ion-content>

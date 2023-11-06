@@ -1,0 +1,31 @@
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <h3>Lista de Incidencias</h3>
+    </ion-item>
+
+    <ion-card *ngFor="let item of incidencias" [color]="getColorCard(item.estado)">
+      <ion-card-header>
+        <ion-card-title> {{item.codigo}} - {{item.nombre}}</ion-card-title>
+        <ion-card-subtitle>[{{item.fecha}}] {{item.usuarioReporta.nombre}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{item.descripcion}}
+      </ion-card-content>
+
+      <ion-card-content style="background-color: rgb(49, 140, 214); color: white;">
+        <ion-label>
+          Asignado a: {{ item.usuarioAsignado?.nombre }}<br>
+          Estado: {{item.estado.nombre}} <br>
+          Fecha de actualización: [{{ item.fechaActualizacion }}]
+        </ion-label>
+        <p>
+          <strong>Comentario :</strong><br>
+          {{item.comentarios}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+</ion-content>

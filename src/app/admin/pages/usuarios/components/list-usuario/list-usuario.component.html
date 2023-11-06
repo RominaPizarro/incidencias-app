@@ -1,0 +1,13 @@
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <h3>Lista de usuarios</h3>
+    </ion-item>
+
+    <ion-card *ngFor="let item of usuarios" >
+      <ion-card-content>
+        {{ item.nombres }} {{ item.apellidos }} - ({{item.rol.nombre}})
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Panel de Administración</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedSegment">
+      <ion-segment-button value="roles">
+        Roles
+      </ion-segment-button>
+      <ion-segment-button value="usuarios">
+        Usuarios
+      </ion-segment-button>
+      <ion-segment-button value="estados">
+        Estados
+      </ion-segment-button>
+      <ion-segment-button value="incidencias">
+        Incidencias
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-roles *ngIf="selectedSegment==='roles'" ></app-roles>
+  <app-usuarios *ngIf="selectedSegment==='usuarios'"></app-usuarios>
+  <app-estados *ngIf="selectedSegment==='estados'"></app-estados>
+  <app-incidencias *ngIf="selectedSegment==='incidencias'"></app-incidencias>
+</ion-content>

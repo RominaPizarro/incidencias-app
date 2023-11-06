@@ -1,0 +1,33 @@
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <h3>Agregar Incidencia</h3>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="codigo" type="text" labelPlacement="stacked" label="Código"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="nombre" type="text" labelPlacement="stacked" label="Nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="areas" label="Área de la Incidencia" label-placement="stacked">
+        <ion-select-option *ngFor="let item of areas" value="item">{{ item }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea [(ngModel)]="descripcion" rows="4" labelPlacement="stacked" label="Descripción de la Incidencia"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="usuarioReporta.nombre" type="text" labelPlacement="stacked" readonly="true" label="Usuario que reporta"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <ion-button  (click)="guardar()" class="p-1">Guardar</ion-button>
+  <ion-button color="danger" (click)="cancelar()">Cancelar</ion-button>
+</ion-content>

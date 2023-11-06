@@ -1,0 +1,11 @@
+
+<ion-content [fullscreen]="true">
+
+  <div style="text-align: end; width: 100%;">
+    <ion-button style="margin: 10px;" *ngIf="componente.selected === 'list-rol'" (click)="changeComponent('add-rol')">Nuevo Rol</ion-button>
+  </div>
+
+  <app-add-rol *ngIf="componente.selected === 'add-rol'" [componenteSelected]="componente" ></app-add-rol>
+  <app-list-rol *ngIf="componente.selected === 'list-rol'"></app-list-rol>
+
+</ion-content>

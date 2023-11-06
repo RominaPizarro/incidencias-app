@@ -1,0 +1,11 @@
+
+<ion-content [fullscreen]="true">
+
+  <div style="text-align: end; width: 100%;">
+    <ion-button style="margin: 10px;" *ngIf="componente.selected === 'list-incidencia'" (click)="changeComponent('add-incidencia')">Nueva Incidencia</ion-button>
+  </div>
+
+  <app-add-incidencia *ngIf="componente.selected === 'add-incidencia'" [componenteSelected]="componente" ></app-add-incidencia>
+  <app-list-incidencia *ngIf="componente.selected === 'list-incidencia'"></app-list-incidencia>
+
+</ion-content>

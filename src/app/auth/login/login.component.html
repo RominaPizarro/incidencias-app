@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Incidencias App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header style="color: white;">
+      LOGIN
+    </ion-card-header>
+  </ion-card>
+
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="username" labelPlacement="stacked" label="Nombre de Usuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="password" [(ngModel)]="password" labelPlacement="stacked" label="Contraseña"></ion-input>
+  </ion-item>
+
+
+  <ion-button (click)="login()">Iniciar sesión</ion-button>
+
+</ion-content>

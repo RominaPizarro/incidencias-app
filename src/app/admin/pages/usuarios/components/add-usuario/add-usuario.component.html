@@ -1,0 +1,41 @@
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <h3>Agregar Rol</h3>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="nombres" type="text" labelPlacement="stacked" label="Nombres"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="apellidos" type="text" labelPlacement="stacked" label="Apellidos"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="documentoIdentidad" type="text" labelPlacement="stacked" label="Documento de identidad"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="email" type="email" labelPlacement="stacked" label="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="username" type="text" labelPlacement="stacked" label="Username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="password" type="password" labelPlacement="stacked" label="Password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="rol" label="Rol" label-placement="stacked">
+        <ion-select-option *ngFor="let item of roles" value="item">{{ item.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+  <ion-button  (click)="guardar()" class="p-1">Guardar</ion-button>
+  <ion-button color="danger" (click)="cancelar()">Cancelar</ion-button>
+</ion-content>
