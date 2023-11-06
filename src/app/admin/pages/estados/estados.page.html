@@ -2,7 +2,7 @@
 <ion-content [fullscreen]="true">
 
   <div style="text-align: end; width: 100%;">
-    <ion-button style="margin: 10px;" *ngIf="componente.selected === 'list-estado'" (click)="changeComponent('add-estado')">Nuevo Rol</ion-button>
+    <ion-button style="margin: 10px;" *ngIf="componente.selected === 'list-estado'" (click)="changeComponent('add-estado')">Nuevo Estado de Incidencia</ion-button>
   </div>
 
   <app-add-estado *ngIf="componente.selected === 'add-estado'" [componenteSelected]="componente" ></app-add-estado>

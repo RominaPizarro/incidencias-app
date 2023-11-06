@@ -17,14 +17,6 @@ export class ListUsuarioComponent  implements OnInit {
       email: 'romina@gmail.com',
       rol: { nombre: 'ADMINISTRADOR' }
     },
-    {
-      id: 1,
-      nombres: 'ROMINA LORETO',
-      apellidos: 'PIZARRO CABANAS',
-      documentoIdentidad: '12345678',
-      email: 'romina@gmail.com',
-      rol: { nombre: 'ADMINISTRADOR' }
-    }
   ];
 
 
