@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioDBService } from 'src/app/services/servicio-db.service';
 
 @Component({
   selector: 'app-list-rol',
@@ -6,20 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-rol.component.scss'],
 })
 export class ListRolComponent implements OnInit {
-  roles: any = [
-    {
-      id: 1,
-      nombre: 'Administrador',
-      descripcion: '',
-    },
-    {
-      id: 2,
-      nombre: 'Empleado',
-      descripcion: '',
-    },
-  ];
+  roles: any = [];
 
-  constructor() {}
+  constructor(private service: ServicioDBService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.listar();
+  }
+
+  listar() {
+    this.service.dbState().subscribe((res) => {
+      if (res) {
+        this.service.fetchRoles().subscribe((data) => {
+          this.roles = data;
+        });
+      }
+    });
+  }
 }

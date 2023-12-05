@@ -24,4 +24,23 @@
 
   <ion-button (click)="login()" style="margin: 15px;">Iniciar sesión</ion-button>
 
+
+  <ion-button (click)="consumirAPI()" style="margin: 15px;">Consumir API</ion-button>
+
+  <ion-list>
+    <ion-item>
+      <h3>Resultado de la API</h3>
+    </ion-item>
+
+    <ion-card *ngFor="let item of data" >
+      <ion-card-content>
+        <strong>{{item.strCategory}}</strong>
+      <p>
+        {{item.strCategoryDescription}}
+      </p>
+      <hr>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
 </ion-content>

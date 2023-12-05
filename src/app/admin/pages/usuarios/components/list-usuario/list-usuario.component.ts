@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario';
+import { ServicioDBService } from 'src/app/services/servicio-db.service';
 
 @Component({
   selector: 'app-list-usuario',
@@ -8,21 +10,24 @@ import { Component, OnInit } from '@angular/core';
 export class ListUsuarioComponent  implements OnInit {
 
 
-  usuarios = [
-    {
-      id: 1,
-      nombres: 'ROMINA LORETO',
-      apellidos: 'PIZARRO CABANAS',
-      documentoIdentidad: '12345678',
-      email: 'romina@gmail.com',
-      rol: { nombre: 'ADMINISTRADOR' }
-    },
-  ];
+  usuarios: Usuario[] = [];
 
+  constructor( private service: ServicioDBService) {
 
+  }
 
-  constructor() { }
+  ngOnInit() {
+    this.listar();
+  }
 
-  ngOnInit() {}
+  listar(){
+    this.service.dbState().subscribe(res => {
+      if(res){
+        this.service.fetchUsuarios().subscribe(data => {
+          this.usuarios = data;
+        });
+      }
+    });
+  }
 
 }

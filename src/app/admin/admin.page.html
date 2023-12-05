@@ -4,13 +4,13 @@
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment [(ngModel)]="selectedSegment">
-      <ion-segment-button value="roles">
+      <ion-segment-button *ngIf="rol === 'Administrador'" value="roles">
         Roles
       </ion-segment-button>
-      <ion-segment-button value="usuarios">
+      <ion-segment-button *ngIf="rol === 'Administrador'" value="usuarios">
         Usuarios
       </ion-segment-button>
-      <ion-segment-button value="estados">
+      <ion-segment-button *ngIf="rol === 'Administrador'" value="estados">
         Estados
       </ion-segment-button>
       <ion-segment-button value="incidencias">
@@ -20,7 +20,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <app-roles *ngIf="selectedSegment==='roles'" ></app-roles>
   <app-usuarios *ngIf="selectedSegment==='usuarios'"></app-usuarios>
   <app-estados *ngIf="selectedSegment==='estados'"></app-estados>

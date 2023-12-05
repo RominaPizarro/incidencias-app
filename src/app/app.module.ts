@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -9,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login.component';
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -18,9 +21,10 @@ import { LoginComponent } from './auth/login/login.component';
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    
+    HttpClientModule
+
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SQLite],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

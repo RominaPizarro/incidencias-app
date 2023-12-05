@@ -14,7 +14,13 @@
     </ion-item>
 
     <ion-item>
-      <ion-select [(ngModel)]="areas" label="Área de la Incidencia" label-placement="stacked">
+      <ion-select [(ngModel)]="estadoId" label="Estado de la Incidencia" label-placement="stacked">
+        <ion-select-option *ngFor="let item of estados" value="{{item.id}}">{{ item.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="area" label="Área de la Incidencia" label-placement="stacked">
         <ion-select-option *ngFor="let item of areas" value="item">{{ item }}</ion-select-option>
       </ion-select>
     </ion-item>
@@ -24,7 +30,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-input [(ngModel)]="usuarioReporta.nombre" type="text" labelPlacement="stacked" readonly="true" label="Usuario que reporta"></ion-input>
+      <ion-input value="{{usuarioReporta.nombres + ' ' + usuarioReporta.apellidos}}" type="text" labelPlacement="stacked" readonly="true" label="Usuario que reporta"></ion-input>
     </ion-item>
 
   </ion-list>

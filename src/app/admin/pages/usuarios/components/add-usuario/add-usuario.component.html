@@ -30,8 +30,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-select [(ngModel)]="rol" label="Rol" label-placement="stacked">
-        <ion-select-option *ngFor="let item of roles" value="item">{{ item.nombre }}</ion-select-option>
+      <ion-select [(ngModel)]="rolId" label="Rol" label-placement="stacked">
+        <ion-select-option *ngFor="let item of roles" value="{{ item.id }}">{{ item.nombre }}</ion-select-option>
       </ion-select>
     </ion-item>
 

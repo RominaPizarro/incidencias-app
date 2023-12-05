@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPage implements OnInit {
 
-  selectedSegment = 'roles';
+  selectedSegment = 'incidencias';
+  rol: string | null = localStorage.getItem('rol');
 
 
   constructor() { }

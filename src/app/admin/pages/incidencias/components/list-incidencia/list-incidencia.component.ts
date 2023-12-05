@@ -2,6 +2,9 @@ import { Component, OnInit, ElementRef, ViewChildren } from '@angular/core';
 import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
+import { Estado } from 'src/app/models/estado';
+import { Incidencia } from 'src/app/models/incidencia';
+import { ServicioDBService } from 'src/app/services/servicio-db.service';
 
 @Component({
   selector: 'app-list-incidencia',
@@ -15,7 +18,8 @@ export class ListIncidenciaComponent implements OnInit {
 
   private cards!: Animation;
 
-  incidencias = [
+  incidencias: Incidencia[] = [
+    /*
     {
       id: 1,
       codigo: 'INC001',
@@ -44,11 +48,31 @@ export class ListIncidenciaComponent implements OnInit {
       comentarios: 'Resuelto sin inconvenientes',
       estado: { nombre: 'RESUELTO' },
     },
+    */
   ];
 
-  constructor(private animationCtrl: AnimationController) {}
+  constructor(
+    private animationCtrl: AnimationController,
+    private service: ServicioDBService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.listar();
+  }
+
+  listar() {
+    this.service.dbState().subscribe((res) => {
+      if (res) {
+        this.service.fetchIncidencias().subscribe((data) => {
+          this.incidencias = data;
+        },
+        (err) => {
+          this.service.presentToast('error listando. ' + JSON.stringify(err));
+        }
+        );
+      }
+    });
+  }
 
   ngAfterViewInit() {
     if (this.cardElements.length > 0) {
@@ -78,8 +102,8 @@ export class ListIncidenciaComponent implements OnInit {
     this.cards.pause();
   }
 
-  getColorCard(estado: any) {
-    switch (estado.nombre) {
+  getColorCard(estado: string) {
+    switch (estado.toUpperCase()) {
       case 'PENDIENTE':
         return 'warning';
       case 'RESUELTO':

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Estado } from 'src/app/models/estado';
+import { ServicioDBService } from 'src/app/services/servicio-db.service';
 
 @Component({
   selector: 'app-list-estado',
@@ -7,36 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListEstadoComponent  implements OnInit {
 
-  estados: any = [
-    {
-      id: 1,
-      nombre: 'PENDIENTE',
-      descripcion: '',
-    },
-    {
-      id: 2,
-      nombre: 'ASIGNADO',
-      descripcion: '',
-    },
-    {
-      id: 3,
-      nombre: 'EN PROCESO',
-      descripcion: '',
-    },
-    {
-      id: 4,
-      nombre: 'SOLUCIONADO',
-      descripcion: '',
-    },
-    {
-      id: 5,
-      nombre: 'RECHAZADO',
-      descripcion: '',
-    },
-  ];
+  estados: Estado[] = [];
 
-  constructor() { }
+  constructor( private service: ServicioDBService) {
 
-  ngOnInit() {}
+  }
+
+  ngOnInit() {
+    this.listar();
+  }
+
+  listar(){
+    this.service.dbState().subscribe(res => {
+      if(res){
+        this.service.fetchEstados().subscribe(data => {
+          this.estados = data;
+        });
+      }
+    });
+  }
 
 }
